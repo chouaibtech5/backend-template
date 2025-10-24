@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    //- 'title' must be provided by the route handler; set a default if undefined to avoid errors
+    title Natours | #{title}
+    //- link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css")
+    link(rel="stylesheet" href="/css/style.css")
+    link(rel="shortcut icon" type="image/png" href="/images/favicon.png")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:wght@400;700")
+  body
+    include _header.pug
+    
+    block content
+      
+    include _footer.pug
+
+    //- script(src='/js/Mapbox.js')
+    //- script(src='/js/login.js')
+    script(src='/js/bundle.js')
