@@ -3,7 +3,6 @@ import { login } from './login.js';
 import { logout } from './login.js';
 import { displayMap } from './Mapbox.js';
 import { updateSettings } from './updateSettings.js';
-import { now } from 'mongoose';
 import { bookTour } from './stripe.js';
 
 const mapBox = document.getElementById('map');
@@ -23,7 +22,7 @@ if(loginForm){
 document.querySelector('.form').addEventListener('submit', e => {
     e.preventDefault();
 
-    console.log(email, password);
+    // console.log(email, password);
     login(email, password);
 });
 }

@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const app = express();
 const fs = require('fs');
 const mongoSanitize = require('express-mongo-sanitize');
+const compression = require('compression');
 const xss = require('xss-clean');
 const jwt = require('jsonwebtoken');
 const hpp = require('hpp');
@@ -60,7 +61,7 @@ app.use(hpp({
         'price'
     ]
 }));
-
+app.use(compression());
 // serving static files
 app.use(
     (req, res, next) => {
