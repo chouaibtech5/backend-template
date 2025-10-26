@@ -20,6 +20,7 @@ const morgan = require('morgan');
 const userRouter = require('./routes/userRoute');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controller/errorController');
+const bookingController = require('./controller/bookingController');
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
@@ -83,7 +84,7 @@ app.use(
     }
 );
 app.use(express.static(path.join(__dirname, 'public'))); // Middleware to serve static files
-
+app.post('/webhook-checkout' , express.raw({ type : 'application/json'}) , bookingController.webhookCheckout);
 
 app.use((req, res, next) => {
     req.requestTime = new Date().toISOString();

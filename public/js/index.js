@@ -4,6 +4,7 @@ import { logout } from './login.js';
 import { displayMap } from './Mapbox.js';
 import { updateSettings } from './updateSettings.js';
 import { bookTour } from './stripe.js';
+import { showAlert } from './alert.js';
 
 const mapBox = document.getElementById('map');
     const email = document.getElementById('email').value;
@@ -63,4 +64,8 @@ if(bookBtn){
         console.log(tourId);
         bookTour(tourId);
     });
+}
+const alertMessage = document.body.dataset.alert;
+if(alertMessage) {
+    showAlert('success', alertMessage ,20);
 }

@@ -10,7 +10,7 @@ html(lang="en")
     link(rel="shortcut icon" type="image/png" href="/images/favicon.png")
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap")
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:wght@400;700")
-  body
+  body(data-alert=`#{alert ? alert : ''}`)
     include _header.pug
     
     block content
