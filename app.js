@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
+const cors = require('cors');
 const app = express();
 app.enable('trust proxy');
 const fs = require('fs');
@@ -24,6 +25,17 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 // 1) GLOBAL MIDDLEWARES
 // Set security HTTP headers
+app.use(cors()) ; 
+// Access-Control-Allow-Origin *
+// api.natours.com , front-end natours.com
+// app.use(
+//     cors({
+//         origin : 'https://www.natours.com'
+//     })
+// );
+
+app.options('*' , cors());
+
 app.use(helmet());
 // Development logging
 if (process.env.NODE_ENV === 'development'){
