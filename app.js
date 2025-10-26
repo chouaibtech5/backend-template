@@ -3,6 +3,7 @@ const express = require('express');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const app = express();
+app.enable('trust proxy');
 const fs = require('fs');
 const mongoSanitize = require('express-mongo-sanitize');
 const compression = require('compression');
